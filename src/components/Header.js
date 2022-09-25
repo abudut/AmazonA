@@ -6,15 +6,17 @@ import {
   SearchIcon,
   ShoppingCartIcon,
 } from "@heroicons/react/outline";
+import { useRouter } from 'next/router'
 
 
 function Header() {
+  const router = useRouter()
   return (
     <header>
       {/*Top NavBar*/}
       <div className="flex items-center bg-amazon_blue p-1 flex-grow py-2">
         <div className="mt-2 flex items-center flex-grow sm:flex-grow-0">
-          <Image
+          <Image onClick={()=> router.push('/')}
             src="https://links.papareact.com/f90"
             width={150}
             height={40}
@@ -41,7 +43,7 @@ function Header() {
             <p>Returs</p>
             <p className="font-extrabold md:text-sm "> & Orders</p>
           </div>
-          <div className="relative link flex items-center">
+          <div onClick={()=> router.push('/checkout')}  className="relative link flex items-center">
             <span className="absolute rounded-full right-0 top-0 h-4 w-4 bg-yellow-400 text-center md:right-10 font-bold text-black">
               0
             </span>
